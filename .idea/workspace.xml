@@ -7,7 +7,9 @@
     <list default="true" id="a5a088e3-002f-4f6d-b98f-953b0ebf176d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab1directory/LABWORK1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lab1directory/LABWORK1.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2directory/second file.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lab2directory/LABWORK2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2directory/LABWORK2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lab2directory/LABWORK2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2directory/task3/orders.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2directory/task3/summary.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,11 +60,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Пользователь\PycharmProjects\PythonProject\lab2directory\task3" />
+      <recent name="C:\Users\Пользователь\PycharmProjects\PythonProject" />
       <recent name="C:\Users\Пользователь\PycharmProjects\PythonProject\lab2directory\task1" />
       <recent name="C:\Users\Пользователь\PycharmProjects\PythonProject\lab2directory\task4" />
-      <recent name="C:\Users\Пользователь\PycharmProjects\PythonProject\lab2directory\task3" />
       <recent name="C:\Users\Пользователь\PycharmProjects\PythonProject\lab2directory\task2" />
-      <recent name="C:\Users\Пользователь\PycharmProjects\PythonProject\txt,csv files" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -121,7 +123,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
           <url>file://$PROJECT_DIR$/lab2directory/LABWORK2.ipynb</url>
-          <line>273</line>
+          <line>247</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
