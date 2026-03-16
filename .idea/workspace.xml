@@ -7,9 +7,17 @@
     <list default="true" id="a5a088e3-002f-4f6d-b98f-953b0ebf176d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab1directory/LABWORK1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lab1directory/LABWORK1.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2directory/LABWORK2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lab2directory/LABWORK2.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2directory/task3/orders.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2directory/task3/summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab1directory/csvfile.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab1directory/f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab1directory/f_report.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab1directory/high_sal.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab1directory/o.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab1directory/orderss.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab1directory/r.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab1directory/report.loukk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab1directory/summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab1directory/trans.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab1directory/лоукк.ipynb" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,14 +135,9 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
-          <url>file://$PROJECT_DIR$/lab1directory/лоукк.ipynb</url>
-          <line>112</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
-          <url>file://$PROJECT_DIR$/lab1directory/лоукк.ipynb</url>
-          <line>217</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/lab1directory/LABWORK1.ipynb</url>
+          <line>449</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
