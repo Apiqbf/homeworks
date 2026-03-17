@@ -1,0 +1,90 @@
+{
+    "students with processed name and grades": [
+        {
+            "name": "Charliex",
+            "grades": [
+                8,
+                14,
+                196,
+                18,
+                324,
+                100
+            ],
+            "comments": [
+                "Needs practice.",
+                "Should review lessons!"
+            ]
+        },
+        {
+            "name": "Fionaz",
+            "grades": [
+                13,
+                144,
+                196,
+                11
+            ],
+            "comments": [
+                "Good work!",
+                "Clear answers."
+            ]
+        },
+        {
+            "name": "Max",
+            "grades": [
+                11,
+                144,
+                100,
+                18,
+                324
+            ],
+            "comments": [
+                "Good effort!",
+                "Asks questions?"
+            ]
+        },
+        {
+            "name": "Tom",
+            "grades": [
+                14,
+                196,
+                6,
+                8,
+                14,
+                196
+            ],
+            "comments": [
+                "Needs practice.",
+                "Should review lessons!"
+            ]
+        }
+    ],
+    "word count": {
+        "Needs practice.": 2,
+        "Should review lessons!": 2
+    },
+    "all_vowels": [
+        "i",
+        "o",
+        "a",
+        "e",
+        "u"
+    ],
+    "students_by_avg": [
+        "Max",
+        "Charliex",
+        "Fionaz",
+        "Tom"
+    ],
+    "students_by_length": {
+        "8": [
+            "Charliex"
+        ],
+        "6": [
+            "Fionaz"
+        ],
+        "3": [
+            "Max",
+            "Tom"
+        ]
+    }
+}

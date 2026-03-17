@@ -1,0 +1,194 @@
+{
+    "ORDERS WITH PROCESSED NAME AND ITEMS": [
+        {
+            "order_id": "A101",
+            "customer": "Alice",
+            "items": [
+                {
+                    "name": "Laptop",
+                    "price": 925.99,
+                    "quantity": 1
+                },
+                {
+                    "name": "Mouse",
+                    "price": 20.5,
+                    "quantity": 2
+                },
+                {
+                    "name": "Keyboard",
+                    "price": 54.0,
+                    "quantity": 1
+                },
+                {
+                    "name": "Desk lamp",
+                    "price": 43.5,
+                    "quantity": 1
+                },
+                {
+                    "name": "Notebook",
+                    "price": 10.25,
+                    "quantity": 5
+                },
+                {
+                    "name": "Pen set",
+                    "price": 9.99,
+                    "quantity": 2
+                },
+                {
+                    "name": "Tablet",
+                    "price": 325.0,
+                    "quantity": 1
+                },
+                {
+                    "name": "Stylus",
+                    "price": 27.75,
+                    "quantity": 1
+                },
+                {
+                    "name": "Screen protector",
+                    "price": 7.5,
+                    "quantity": 2
+                }
+            ],
+            "notes": [
+                "Deliver after 5pm!",
+                "Fragile package.",
+                "Pack carefully."
+            ]
+        },
+        {
+            "order_id": "A103",
+            "customer": "Charlie",
+            "items": [
+                {
+                    "name": "Laptop",
+                    "price": 925.99,
+                    "quantity": 1
+                },
+                {
+                    "name": "Mouse",
+                    "price": 20.5,
+                    "quantity": 2
+                },
+                {
+                    "name": "Keyboard",
+                    "price": 54.0,
+                    "quantity": 1
+                },
+                {
+                    "name": "Desk lamp",
+                    "price": 43.5,
+                    "quantity": 1
+                },
+                {
+                    "name": "Notebook",
+                    "price": 10.25,
+                    "quantity": 5
+                },
+                {
+                    "name": "Pen set",
+                    "price": 9.99,
+                    "quantity": 2
+                },
+                {
+                    "name": "Tablet",
+                    "price": 325.0,
+                    "quantity": 1
+                },
+                {
+                    "name": "Stylus",
+                    "price": 27.75,
+                    "quantity": 1
+                },
+                {
+                    "name": "Screen protector",
+                    "price": 7.5,
+                    "quantity": 2
+                }
+            ],
+            "notes": [
+                "Gift wrap, please.",
+                "Include receipt!",
+                "Pack carefully."
+            ]
+        },
+        {
+            "order_id": "A105",
+            "customer": "Eric",
+            "items": [
+                {
+                    "name": "Laptop",
+                    "price": 925.99,
+                    "quantity": 1
+                },
+                {
+                    "name": "Mouse",
+                    "price": 20.5,
+                    "quantity": 2
+                },
+                {
+                    "name": "Keyboard",
+                    "price": 54.0,
+                    "quantity": 1
+                },
+                {
+                    "name": "Desk lamp",
+                    "price": 43.5,
+                    "quantity": 1
+                },
+                {
+                    "name": "Notebook",
+                    "price": 10.25,
+                    "quantity": 5
+                },
+                {
+                    "name": "Pen set",
+                    "price": 9.99,
+                    "quantity": 2
+                },
+                {
+                    "name": "Tablet",
+                    "price": 325.0,
+                    "quantity": 1
+                },
+                {
+                    "name": "Stylus",
+                    "price": 27.75,
+                    "quantity": 1
+                },
+                {
+                    "name": "Screen protector",
+                    "price": 7.5,
+                    "quantity": 2
+                }
+            ],
+            "notes": [
+                "Fragile package!",
+                "Priority shipping.",
+                "Pack carefully."
+            ]
+        }
+    ],
+    "word count": {
+        "Pack carefully.": 3
+    },
+    "vowels": [
+        "i",
+        "o",
+        "a",
+        "e",
+        "u"
+    ],
+    "orders_by_total": [
+        "A101",
+        "A103",
+        "A105"
+    ],
+    "orders_by_item": {
+        "9": [
+            "A101",
+            "A103",
+            "A105"
+        ]
+    }
+}
