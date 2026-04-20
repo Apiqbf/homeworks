@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5a088e3-002f-4f6d-b98f-953b0ebf176d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/PythonProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PythonProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/__init__.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.csv.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/txt,csv files/data.csv.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.txt.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/txt,csv files/data.txt.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab1directory/LABWORK1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lab1directory/LABWORK1.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab3directory/LAB3WORK.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lab3directory/LAB3WORK.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -35,33 +40,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.VFDVDFV.executor&quot;: &quot;Run&quot;,
-    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.LABWORK4.executor": "Run",
+    "Python.LABWORK5.executor": "Run",
+    "Python.LABWORK6.executor": "Run",
+    "Python.VFDVDFV.executor": "Run",
+    "Python.__init__.executor": "Run",
+    "Python.asfd.executor": "Run",
+    "Python.dfg.executor": "Run",
+    "Python.flaskk.executor": "Run",
+    "Python.flaskkk.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.movies.executor": "Run",
+    "Python.plots.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Пользователь\PycharmProjects\PythonProject\lab2directory\task3" />
       <recent name="C:\Users\Пользователь\PycharmProjects\PythonProject" />
+      <recent name="C:\Users\Пользователь\PycharmProjects\PythonProject\txt,csv files" />
+      <recent name="C:\Users\Пользователь\PycharmProjects\PythonProject\lab2directory\task3" />
       <recent name="C:\Users\Пользователь\PycharmProjects\PythonProject\lab2directory\task1" />
       <recent name="C:\Users\Пользователь\PycharmProjects\PythonProject\lab2directory\task4" />
-      <recent name="C:\Users\Пользователь\PycharmProjects\PythonProject\lab2directory\task2" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -118,10 +132,20 @@
           <line>4</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/lab5directory/LABWORK5.py</url>
+          <line>326</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
           <url>file://$PROJECT_DIR$/lab2directory/LABWORK2.ipynb</url>
           <line>247</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>file://$PROJECT_DIR$/lab1directory/lab1защита.ipynb</url>
+          <line>44</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
