@@ -108,46 +108,35 @@ class Player:
 
         return cls(id,name,hp)
 
-p1=Player(1,"Player1",100)
-p2=Player(2,"Player2",100)
 
-print(p1.attack(p2,40))
+class Warrior(Player):
+    def handle_event(self, event: Event):
+        if event.type == "ATTACK":
+            damage=event.data.get("damage", 0)
+            damage=damage * 0.9
+            event.data["damage"]=damage
+        super().handle_event(event)
 
-p2.handle_event(Event("HEAL",{"amount":25}))
 
-print(p2._hp)
-
-####3
-class Item:
-    def __init__(self,id,name,power):
-        self.id=id
-        self.name=name
-        self.power=max(0,power)
-
-    def __hash__(self):
-        return hash(self.id)
-    def __eq__(self, other):
-        return self.id==other.id
-    def __str__(self):
-        return f"Item(id={self.id},name={self.name},power={self.power})"
-
-i1=Item(23,"Axe",45)
-i2=Item(32,"Sword",35)
-i3=Item(23,"Axe",45)
-i4=Item(56,"Hammer",30)
-i5=Item(60,"Chainsaw",50)
-
-items={i1,i2,i3,i4,i5}
+class Mage(Player):
+    def handle_event(self, event: Event):
+        if event.type == "LOOT":
+            item = event.data.get("item")
+            if item:
+                item.power = int(item.power * 1.1)
+        super().handle_event(event)
 
 
 
+sword = Item(1, "Sword", 50)
+warrior = Warrior(1, "Thor", 100)
+warrior.handle_event(Event("ATTACK", {"damage": 20}))
+#print(warrior)
 
 
-
-
-
-
-
+mage = Mage(2, "Merlin", 100)
+mage.handle_event(Event("LOOT", {"item": sword}))
+#print(sword.power)
 
 import ast
 class Logger:
@@ -160,13 +149,14 @@ class Logger:
             else:
                 safe_data[key]=value
 
-        line=f"{ts};{player._id};{safe_data}\n"
+        line=f"{ts};{player._id};{event.type};{safe_data}\n"
         with open(filename,"w")as f:
             f.write(line)
+
     def read_logs(self,filename):
         events=[]
-        with open(filename,"w")as f:
-            for line in f:
+        with open(filename,"r")as file:
+            for line in file:
                 line=line.strip()
                 line=line.split(";")
                 event_type=line[2]
@@ -269,3 +259,49 @@ def analyze_inventory(inventories):
 
 
 
+# def main():
+#     players=[
+#         Warrior(1, "Thor", 100),
+#         Mage(2, "Merlin", 100),
+#         Player(3,"Robin", 80)
+#     ]
+#     items=[
+#         Item(1,"Sword",50),
+#         Item(2,"Shield",30),
+#         Item(3,"Axe",70),
+#         Item(4,"Staff",60)
+#     ]
+#
+#     events=generate_events(players,items,n=5)
+#
+#     logger = Logger()
+#     open("game.log", "w").close()
+#
+#     for event in events:
+#         player_id = event.data.get("player_id")
+#         player = next((p for p in players if p._id == player_id), None)
+#         if player:
+#             player.handle_event(event)
+#             logger.log(event, player, "game.log")
+#
+#     logged_events=logger.read_logs("game.log")
+#     print(f"\nВсего записано событий:{len(logged_events)}")
+#
+#     result=analyze_logs(events)
+#     print(f"Общий урон:{result['total_damage']}")
+#     print(f"Игрок с наибольшим уроном:{result['top_player']}")
+#     print(f"Самое частое событие:{result['most_common_event']}")
+#
+#     top_inventory=max(players,key=lambda p:len(p.inventory.get_items()))
+#     print(f"Игрок с наибольшим инвентарём:{top_inventory}")
+#
+#     inv_result = analyze_inventory([p.inventory for p in players])
+#     print(f"Уникальных предметов: {len(inv_result['unique_items'])}")
+#     print(f"Самый мощный предмет: {inv_result['top_power']}")
+#
+#     print("\nСостояние игроков:")
+#     for p in players:
+#         print(p)
+#
+#
+# main()
