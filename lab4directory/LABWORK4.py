@@ -72,6 +72,26 @@ class Player:
         self._hp=max(0,hp)
         self._inventory=Inventory()
 
+    @property
+    def hp(self):
+        return self._hp
+
+    @hp.setter
+    def hp(self, value):
+        self._hp = max(0, value)
+
+    @property
+    def inventory(self):
+        return self._inventory
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def id(self):
+        return self._id
+
     def attack(self,other,amount):
         other._hp-=amount
         return f"{self._name} атаковал {other._name},player's hp={other._hp}"
@@ -216,7 +236,7 @@ def analyze_logs(events):
             player_id=e.data.get("player_id")
             damage_by_player[player_id]=damage_by_player.get(player_id,0)+e.data.get("damage",0)
 
-    top_player=max(damage_by_player,key=lambda pid:damage_by_player[pid])
+    top_player=max(damage_by_player,key=lambda pid:damage_by_player[pid]) if damage_by_player else None
 
     event_counts={}
 
@@ -246,62 +266,63 @@ decide_action=lambda p:(
 
 
 def analyze_inventory(inventories):
-    unique_items=set()
-    for inventory in inventories:
-        items=inventory.get_items()
+    all_items=[item for inv in inventories for item in inv]
 
-        for item in items:
-            if item not in unique_items:
-                unique_items.add(item)
+    unique=set(all_items)
 
-    top_power=max(unique_items,key=lambda i:i.power)
+    top=max(all_items, key=lambda item: item.power) if all_items else None
+
+    return {
+        "unique_items": unique,
+        "top_power": top
+    }
 
 
 
 
-# def main():
-#     players=[
-#         Warrior(1, "Thor", 100),
-#         Mage(2, "Merlin", 100),
-#         Player(3,"Robin", 80)
-#     ]
-#     items=[
-#         Item(1,"Sword",50),
-#         Item(2,"Shield",30),
-#         Item(3,"Axe",70),
-#         Item(4,"Staff",60)
-#     ]
-#
-#     events=generate_events(players,items,n=5)
-#
-#     logger = Logger()
-#     open("game.log", "w").close()
-#
-#     for event in events:
-#         player_id = event.data.get("player_id")
-#         player = next((p for p in players if p._id == player_id), None)
-#         if player:
-#             player.handle_event(event)
-#             logger.log(event, player, "game.log")
-#
-#     logged_events=logger.read_logs("game.log")
-#     print(f"\nВсего записано событий:{len(logged_events)}")
-#
-#     result=analyze_logs(events)
-#     print(f"Общий урон:{result['total_damage']}")
-#     print(f"Игрок с наибольшим уроном:{result['top_player']}")
-#     print(f"Самое частое событие:{result['most_common_event']}")
-#
-#     top_inventory=max(players,key=lambda p:len(p.inventory.get_items()))
-#     print(f"Игрок с наибольшим инвентарём:{top_inventory}")
-#
-#     inv_result = analyze_inventory([p.inventory for p in players])
-#     print(f"Уникальных предметов: {len(inv_result['unique_items'])}")
-#     print(f"Самый мощный предмет: {inv_result['top_power']}")
-#
-#     print("\nСостояние игроков:")
-#     for p in players:
-#         print(p)
-#
-#
-# main()
+def main():
+    players=[
+        Warrior(1, "Thor", 100),
+        Mage(2, "Merlin", 100),
+        Player(3,"Robin", 80)
+    ]
+    items=[
+        Item(1,"Sword",50),
+        Item(2,"Shield",30),
+        Item(3,"Axe",70),
+        Item(4,"Staff",60)
+    ]
+
+    events=generate_events(players,items,n=5)
+
+    logger = Logger()
+    open("game.log", "w").close()
+
+    for event in events:
+        player_id = event.data.get("player_id")
+        player = next((p for p in players if p._id == player_id), None)
+        if player:
+            player.handle_event(event)
+            logger.log(event, player, "game.log")
+
+    logged_events=logger.read_logs("game.log")
+    print(f"\nВсего записано событий:{len(logged_events)}")
+
+    result=analyze_logs(events)
+    print(f"Общий урон:{result['total_damage']}")
+    print(f"Игрок с наибольшим уроном:{result['top_player']}")
+    print(f"Самое частое событие:{result['most_common_event']}")
+
+    top_inventory=max(players,key=lambda p:len(p.inventory.get_items()))
+    print(f"Игрок с наибольшим инвентарём:{top_inventory}")
+
+    inv_result = analyze_inventory([p.inventory for p in players])
+    print(f"Уникальных предметов: {len(inv_result['unique_items'])}")
+    print(f"Самый мощный предмет: {inv_result['top_power']}")
+
+    print("\nСостояние игроков:")
+    for p in players:
+        print(p)
+
+
+main()
