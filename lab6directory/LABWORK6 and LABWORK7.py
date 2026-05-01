@@ -204,7 +204,7 @@ most_expensive=catalog_products.loc[
 #     mean_price=("col_2","mean"),
 #     mean_quantity=("col_3","mean")
 # ).reset_index()
-
+#
 # sns.scatterplot(data=categories_mean,x="mean_price",y="mean_quantity",hue="col_7")
 #
 # plt.title("Средние цены и запасы по категориям товаров")
@@ -269,13 +269,241 @@ categories_std=categories_std.rename(columns={"col_7":"categories"})
 #то же самое что и 7 задача
 
 ####45
-top10_value=catalog_products.sort_values(by="total_value",ascending=False).head(10)
-top10_stock=catalog_products.sort_values(by="col_3",ascending=False).head(10)
+# top10_value=catalog_products.sort_values(by="total_value",ascending=False).head(10)
+# top10_stock=catalog_products.sort_values(by="col_3",ascending=False).head(10)
+#
+# with pd.ExcelWriter("catalog_final_report.xlsx",engine="openpyxl")as writer:
+#     catalog_products.to_excel(writer,sheet_name="Обработанные данные",index=False)
+#     category_summary.to_excel(writer,sheet_name="Отчет по категориям",index=False)
+#     top10_price.to_excel(writer,sheet_name="Топ-10 по стоимости",index=False)
+#     top10_stock.to_excel(writer,sheet_name="Топ-10 по количеству",index=False)
 
-with pd.ExcelWriter("catalog_final_report.xlsx",engine="openpyxl")as writer:
-    catalog_products.to_excel(writer,sheet_name="Обработанные данные",index=False)
-    category_summary.to_excel(writer,sheet_name="Отчет по категориям",index=False)
-    top10_price.to_excel(writer,sheet_name="Топ-10 по стоимости",index=False)
-    top10_stock.to_excel(writer,sheet_name="Топ-10 по количеству",index=False)
 
+
+
+
+
+####                          LAB7
+
+
+
+####6
+encoded=pd.get_dummies(catalog_products,columns=["col_7"],dtype=int)
+
+####7
+from sklearn.model_selection import train_test_split
+
+y=encoded["col_2"]
+
+X=encoded.drop(columns=["col_2","log_price","total_value"])
+
+X=X.select_dtypes(include="number")
+
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=42)
+
+
+####11
+from sklearn.preprocessing import StandardScaler
+
+cols_to_scale=["col_3","col_5","col_6"]
+
+scaler=StandardScaler()
+
+X_train[cols_to_scale]=scaler.fit_transform(X_train[cols_to_scale])
+X_test[cols_to_scale]=scaler.transform(X_test[cols_to_scale])
+
+#print(X_train[cols_to_scale].mean())
+
+####8
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error,mean_squared_error
+
+
+model=LinearRegression()
+model.fit(X_train,y_train)
+
+y_pred=model.predict(X_test)
+
+mae=mean_absolute_error(y_test,y_pred)
+mse=mean_squared_error(y_test,y_pred)
+
+
+
+###10
+# plt.scatter(y_test,y_pred,alpha=0.3,color="green")
+#
+# plt.plot([y_test.min(),y_test.max()],
+#          [y_test.min(),y_test.max()],
+#          color="red")
+#
+#
+# plt.title("Истинная vs предсказанная цена")
+# plt.xlabel("Истинная цена")
+# plt.ylabel("Предсказанная цена")
+
+#plt.show()
+
+
+####12
+from sklearn.tree import DecisionTreeRegressor
+
+tree_model=DecisionTreeRegressor(random_state=42)
+tree_model.fit(X_train,y_train)
+
+importances=pd.Series(
+    tree_model.feature_importances_,
+    index=X_train.columns
+).sort_values(ascending=False)
+
+# sns.barplot(x=importances.values[:15],y=importances.index[:15])
+#
+# plt.title("Важность признаков")
+# plt.xlabel("Важность")
+# plt.ylabel("Признаки")
+#
+# plt.show()
+
+
+
+####13
+from sklearn.preprocessing import PolynomialFeatures
+
+cols_poly=["col_3","col_5","col_6"]
+
+poly=PolynomialFeatures(degree=2,include_bias=False)
+X_train_poly=poly.fit_transform(X_train[cols_poly])
+X_test_poly=poly.transform(X_test[cols_poly])
+
+model_poly=LinearRegression()
+model_poly.fit(X_train_poly,y_train)
+
+y_pred_poly=model_poly.predict(X_test_poly)
+mae_poly=mean_absolute_error(y_test,y_pred_poly)
+mse=mean_squared_error(y_test,y_pred_poly)
+
+
+####14
+from sklearn.neighbors import KNeighborsRegressor
+
+knn_model=KNeighborsRegressor(n_neighbors=5)
+knn_model.fit(X_train,y_train)
+
+y_pred_knn=knn_model.predict(X_test)
+mae_knn=mean_absolute_error(y_test,y_pred_knn)
+mse_knn=mean_squared_error(y_test,y_pred_knn)
+
+# print(f"Линейная регрессия — MAE: {mae:.2f}")
+# print(f"Полиномиальная     — MAE: {mae_poly:.2f}")
+# print(f"KNN                — MAE: {mae_knn:.2f}")
+
+
+
+####15 и 16
+categories=catalog_products["col_7"].unique()
+# fig,axes=plt.subplots(2,3)
+# axes=axes.flatten()
+#
+# for i,category in enumerate(categories):
+#     mask=catalog_products["col_7"]==category
+#     df_cat=catalog_products[mask]
+#
+#     X_cat=df_cat.select_dtypes(include="number").drop(columns=["col_2"])
+#     y_cat=df_cat["col_2"]
+#
+#     X_train_cat,X_test_cat,y_train_cat,y_test_cat=train_test_split(X_cat,y_cat,
+#                                                                    test_size=0.2,
+#                                                                    random_state=42)
+#
+#     model_cat=LinearRegression()
+#     model_cat.fit(X_train_cat,y_train_cat)
+#
+#     y_pred_cat=model_cat.predict(X_test_cat)
+#     mae_cat=mean_absolute_error(y_test_cat,y_pred_cat)
+#
+#     #print(f"{category}   - MAE:{mae_cat:.2f}")
+#
+#     axes[i].scatter(y_test_cat,y_pred_cat)
+#     axes[i].plot([y_test_cat.min(),y_test_cat.max()],
+#                  [y_test_cat.min(),y_test_cat.max()])
+#
+#     axes[i].set_title(category)
+#     axes[i].set_xlabel("Истинная цена")
+#     axes[i].set_ylabel("Предсказанная цена")
+#
+# axes[5].set_visible(False)
+#
+# plt.tight_layout()
+# plt.show()
+
+####17
+from sklearn.model_selection import cross_val_score
+
+scores=cross_val_score(
+    LinearRegression(),X,y,
+    cv=5,
+    scoring="neg_mean_absolute_error"
+)
+
+mae_scores=-scores
+
+# print(f"MAE по фолдам:{mae_scores.round(2)}")
+# print(f"Средний MAE:{mae_scores.mean():.2f}")
+# print(f"Разброс MAE:{mae_scores.std():.2f}")
+
+
+####18
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+
+def price_class(price):
+    if price<100:
+        return 1
+    if price<=500:
+        return 2
+    else:
+        return 3
+
+encoded["price_class"]=encoded["col_2"].apply(price_class)
+
+X_cls=encoded.select_dtypes(include="number").drop(columns=["col_2","price_class","log_price","total_value"])
+y_cls=encoded["price_class"]
+
+X_train_cls,X_test_cls,y_train_cls,y_test_cls=train_test_split(X_cls,y_cls,
+                                                               test_size=0.2,
+                                                               random_state=42)
+
+tree_cls=DecisionTreeClassifier()
+tree_cls.fit(X_train_cls,y_train_cls)
+
+y_pred_cls=tree_cls.predict(X_test_cls)
+accuracy=accuracy_score(y_test_cls,y_pred_cls)
+
+#print(f"Точность модели:{accuracy}")
+
+
+
+####19
+from sklearn.metrics import confusion_matrix
+
+cm=confusion_matrix(y_test_cls,y_pred_cls)
+
+sns.heatmap(cm,
+            annot=True,
+            fmt="d",
+            xticklabels=["Низкая","Средняя","Высокая"],
+            yticklabels=["Низкая","Средняя","Высокая"])
+
+plt.title("Матрица путаницы")
+plt.xlabel("Предсказанный класс")
+plt.ylabel("Истинный класс")
+
+#plt.show()
+
+####20
+X_full=encoded[X_train.columns]
+
+encoded["predicted_price"]=tree_model.predict(X_full)
+encoded["predicted_class"]=tree_cls.predict(X_full)
+
+encoded.to_excel("catalog_ml_predictions.xlsx",index=False)
 
